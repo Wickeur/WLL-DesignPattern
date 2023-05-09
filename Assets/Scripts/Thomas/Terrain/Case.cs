@@ -6,7 +6,7 @@ public class Case : MonoBehaviour
 {
     private int _position_x;
     private int _position_y;
-    bool _est_occupe;
+    private bool _est_occupe;
 
     public Case(int x, int y, bool occupe)
     {
@@ -26,6 +26,4 @@ public class Case : MonoBehaviour
     {
         return new Vector2(_position_x, _position_y);
     }
-
-
 }

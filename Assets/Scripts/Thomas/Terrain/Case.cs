@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Case
+public class Case : MonoBehaviour
 {
     int _position_x;
     int _position_y;

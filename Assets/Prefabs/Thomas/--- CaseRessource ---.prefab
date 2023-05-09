@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 803686444060430016}
   - component: {fileID: 4282673371870887986}
   m_Layer: 0
-  m_Name: --- CasePleine ---
+  m_Name: --- CaseRessource ---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

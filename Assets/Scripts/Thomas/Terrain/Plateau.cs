@@ -8,13 +8,13 @@ public class Plateau : MonoBehaviour
     [SerializeField] private Case _case_vide_prefab;
     [SerializeField] private RessourceCase _case_pleine_prefab;
     [SerializeField] private GameObject _stockage_cases_vides;
-    [SerializeField] private GameObject _stockage_cases_pleines;
+    [SerializeField] private GameObject _stockage_cases_ressources;
 
     [SerializeField] private int _hauteur;
     [SerializeField] private int _largeur;
     List<Case> _cases;
 
-    // A delete
+    // A delete plus tard utilisé uniquement pour mes tests
     private void Start()
     {
         initPlateau();
@@ -36,13 +36,17 @@ public class Plateau : MonoBehaviour
                 int random = Random.Range(0, 2);
                 if (random == 0)
                 {
-                    GameObject NewCase = Instantiate(_case_vide_prefab, new Vector3(x, y, 0), Quaternion.identity).gameObject;
-                    NewCase.transform.parent = _stockage_cases_vides.transform;
+                    Case NewCase = Instantiate(_case_vide_prefab, new Vector3(x, y, 0), Quaternion.identity);
+                    NewCase.gameObject.transform.parent = _stockage_cases_vides.transform;
+                    NewCase.SetCase(x, y, false);
+                    _cases.Add(NewCase);
                 }
                 else
                 {
-                    GameObject NewCase = Instantiate(_case_pleine_prefab, new Vector3(x, y, 0), Quaternion.identity).gameObject;
-                    NewCase.transform.parent = _stockage_cases_pleines.transform;
+                    RessourceCase NewCase = Instantiate(_case_pleine_prefab, new Vector3(x, y, 0), Quaternion.identity);
+                    NewCase.gameObject.transform.parent = _stockage_cases_ressources.transform;
+                    NewCase.SetCase(x, y, true);
+                    _cases.Add(NewCase);
                 }
             }
         }

@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &76160729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76160730}
+  m_Layer: 0
+  m_Name: '- Cases Ressources -'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &76160730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76160729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 686509965}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &408293197
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +291,7 @@ GameObject:
   - component: {fileID: 686509965}
   - component: {fileID: 686509964}
   m_Layer: 0
-  m_Name: Plateau
+  m_Name: --- Plateau ---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -278,9 +309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348a197a4608c724cb72ff59e5a8419a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  caseVidePrefab: {fileID: 3980845687738780139, guid: 6333c9c0ac16f2b42a68d3b79fc6dde2, type: 3}
-  casePleinePrefab: {fileID: 4282673371870887986, guid: 054173010c7913e4ba75fa835ff84651, type: 3}
-  stockageCases: {fileID: 1930494418}
+  _case_vide_prefab: {fileID: 3980845687738780139, guid: 6333c9c0ac16f2b42a68d3b79fc6dde2, type: 3}
+  _case_pleine_prefab: {fileID: 4282673371870887986, guid: 054173010c7913e4ba75fa835ff84651, type: 3}
+  _stockage_cases_vides: {fileID: 1930494418}
+  _stockage_cases_ressources: {fileID: 76160729}
   _hauteur: 10
   _largeur: 10
 --- !u!4 &686509965
@@ -296,6 +328,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1930494419}
+  - {fileID: 76160730}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -518,7 +551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1930494419}
   m_Layer: 0
-  m_Name: '- Cases -'
+  m_Name: '- Cases Vides -'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

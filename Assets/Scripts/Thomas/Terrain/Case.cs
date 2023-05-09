@@ -15,5 +15,17 @@ public class Case : MonoBehaviour
         _est_occupe = occupe;
     }
 
+    public void SetCase(int x, int y, bool occupe)
+    {
+        _position_x = x;
+        _position_y = y;
+        _est_occupe = occupe;
+    }
+
+    public Vector2 GetPosition()
+    {
+        return new Vector2(_position_x, _position_y);
+    }
+
 
 }

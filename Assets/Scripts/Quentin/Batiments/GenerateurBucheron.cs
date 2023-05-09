@@ -6,7 +6,7 @@ public class GenerateurBucheron : Batiments
 {
     public GenerateurBucheron(int Intervalle) : base(Intervalle)
     {
-
+        
     }
 
     public void CreerBucheron()

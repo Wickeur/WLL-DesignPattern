@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         demarrerUnePartie();
+        RessourceManager._instance.InitialiserRessources();
     }
 
     // Update is called once per frame

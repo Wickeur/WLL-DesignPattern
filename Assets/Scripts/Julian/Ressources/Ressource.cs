@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ressource : MonoBehaviour
 {
+    // SerializeField = permet de définir dans unity les variables privées
     [SerializeField] private int _quantite = 0;
     [SerializeField] private TypeRessource _type_ressource;
 

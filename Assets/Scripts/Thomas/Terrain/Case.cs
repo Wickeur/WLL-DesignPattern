@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Case : MonoBehaviour
 {
-    int _position_x;
-    int _position_y;
+    private int _position_x;
+    private int _position_y;
     bool _est_occupe;
 
     public Case(int x, int y, bool occupe)
@@ -14,4 +14,6 @@ public class Case : MonoBehaviour
         _position_y = y;
         _est_occupe = occupe;
     }
+
+
 }

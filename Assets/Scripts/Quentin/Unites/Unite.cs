@@ -20,6 +20,13 @@ public class Unite : MonoBehaviour
         _quantite_experience = 0;
     }
 
+    public void InitCaseDepart()
+    {
+        List<Case> casesNonOccupe = Plateau.instance.GetCasesNonOccupe();
+        int randomCase = Random.Range(0, casesNonOccupe.Count);
+        _case = casesNonOccupe[randomCase];
+    }
+
     public void Ameliorer()
     {
 

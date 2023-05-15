@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UniteManager : MonoBehaviour
+public class OutilManager : MonoBehaviour
 {
-    public static UniteManager _instance;
-    [SerializeField] private GameObject _recolteur;
-    private List<GameObject> _unites;
-
+    public static OutilManager _instance;
+    
     public void Awake()
     {
         // Si l'instance est null, alors l'instance est cette instance
@@ -23,18 +21,4 @@ public class UniteManager : MonoBehaviour
         }
     }
 
-    public GameObject GetRecolteur()
-    {
-        return _recolteur;
-    }
-
-    public void AjouterUnite(GameObject unite)
-    {
-        _unites.Add(unite);
-    }
-
-    public void AmeliorerUnOutil()
-    {
-        
-    }
 }

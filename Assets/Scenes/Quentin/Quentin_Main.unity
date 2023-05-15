@@ -468,6 +468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1814244094}
   - component: {fileID: 1814244095}
+  - component: {fileID: 1814244096}
   m_Layer: 0
   m_Name: --- Recolteur ---
   m_TagString: Untagged
@@ -500,5 +501,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1560a4095611b2a4aafd1728039d5142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vitesse: 3
+  _outil: {fileID: 1814244096}
+--- !u!114 &1814244096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814244093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d7cce649530df4db52eece8eeec013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

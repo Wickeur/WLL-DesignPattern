@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Outils
+public class Outils : MonoBehaviour
 {
     int _niveau = 0;
 
@@ -10,12 +10,7 @@ public class Outils
     {
         _niveau = niveau;
     }
-
-    public void Affecter_Unite()
-    {
-
-    }
-
+    
     public void Gain_Niveau()
     {
         _niveau++;

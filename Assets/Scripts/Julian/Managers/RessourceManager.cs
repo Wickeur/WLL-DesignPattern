@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class RessourceManager : MonoBehaviour
 {
-    // Sigleton = permet de créer une instance unique d'une classe
-    //Créer un sigleton
     public static RessourceManager _instance;
 
     [SerializeField] private List<Ressource> _ressources; // Liste des ressources

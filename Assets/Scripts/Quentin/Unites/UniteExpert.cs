@@ -7,7 +7,7 @@ public class UniteExpert : Unite
     int _Bonus_Efficacite;
     int _Nb_Tour_Affame;
 
-    public UniteExpert(int vitesse, int coutParTour, Case la_case, int BonusEff) : base (vitesse, coutParTour, la_case)
+    public UniteExpert(int vitesse, Cout coutParTour, Case la_case, int BonusEff) : base (vitesse, coutParTour, la_case)
     {
         _Bonus_Efficacite = BonusEff;
         _Nb_Tour_Affame = 0;

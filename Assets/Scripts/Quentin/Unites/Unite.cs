@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unite
+public class Unite : MonoBehaviour
 {
-    int _vitesse;
-    int _cout_par_tour;
-    bool _nourri;
-    int _quantite_experience;
-    Case _case;
+    [SerializeField] private int _vitesse;
+    [SerializeField] private Cout _cout_par_tour;
+    private bool _nourri;
+    private int _quantite_experience;
+    private Case _case;
 
-    public Unite(int vitesse, int coutParTour, Case la_case)
+    public Unite(int vitesse, Cout coutParTour, Case la_case)
     {
         _vitesse = vitesse;
         _cout_par_tour = coutParTour;

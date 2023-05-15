@@ -31,7 +31,7 @@ public class Plateau : MonoBehaviour
         }
     }
 
-    // A delete plus tard utilisé uniquement pour mes tests
+    // A delete plus tard utilisÃ© uniquement pour mes tests
     private void Start()
     {
         initPlateau();

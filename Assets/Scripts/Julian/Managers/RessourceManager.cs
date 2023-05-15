@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class RessourceManager : MonoBehaviour
 {
-    // Sigleton = permet de créer une instance unique d'une classe
-    //Créer un sigleton
     public static RessourceManager _instance;
 
     [SerializeField] private List<Ressource> _ressources; // Liste des ressources
@@ -17,6 +15,43 @@ public class RessourceManager : MonoBehaviour
         {
             _ressources[i].InitialiserRessource(_quantite_ressource_initiale);
         }
+    }
+
+    private bool PeuxAchetter(List<Cout> couts)
+    {
+        bool succes = true;
+        
+        for (int i = 0; i < couts.Count; i++)
+        {
+            for (int j = 0; j < _ressources.Count; j++)
+            {
+                if (couts[i].type == _ressources[j].GetTypeRessource() && !_ressources[j].PossedeRessource(couts[i].cout))
+                {
+                    succes = false;
+                }
+            }
+        }
+
+        return succes;
+    }
+
+    public bool Achetter(List<Cout> couts)
+    {
+        if (PeuxAchetter(couts))
+        {
+            for (int i = 0; i < couts.Count; i++)
+            {
+                for (int j = 0; j < _ressources.Count; j++)
+                {
+                    if (couts[i].type == _ressources[j].GetTypeRessource())
+                    {
+                        _ressources[j].Consommer(couts[i].cout);
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     public void Awake()

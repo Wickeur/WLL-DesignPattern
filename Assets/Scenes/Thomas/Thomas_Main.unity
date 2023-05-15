@@ -309,12 +309,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348a197a4608c724cb72ff59e5a8419a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _case_vide_prefab: {fileID: 3980845687738780139, guid: 6333c9c0ac16f2b42a68d3b79fc6dde2, type: 3}
-  _case_pleine_prefab: {fileID: 4282673371870887986, guid: 054173010c7913e4ba75fa835ff84651, type: 3}
+  _case_vide_prefab: {fileID: 5702657321810156440, guid: 6333c9c0ac16f2b42a68d3b79fc6dde2, type: 3}
+  _case_pleine_prefab: {fileID: 6183426672372727797, guid: 054173010c7913e4ba75fa835ff84651, type: 3}
   _stockage_cases_vides: {fileID: 1930494418}
   _stockage_cases_ressources: {fileID: 76160729}
   _hauteur: 10
   _largeur: 10
+  _cases_vides: []
+  _cases_ressources: []
 --- !u!4 &686509965
 Transform:
   m_ObjectHideFlags: 0

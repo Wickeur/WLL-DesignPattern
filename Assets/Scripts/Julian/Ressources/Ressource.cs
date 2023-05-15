@@ -14,6 +14,26 @@ public class Ressource : MonoBehaviour
         _type_ressource = typeRessource;
     }
 
+    public bool PossedeRessource(int cout)
+    {
+        if (cout <= _quantite)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public TypeRessource GetTypeRessource()
+    {
+        return _type_ressource;
+    }
+
+    public int GetQuantite()
+    {
+        return _quantite;
+    }
+
     public void InitialiserRessource(int quantite)
     {
         _quantite = quantite;

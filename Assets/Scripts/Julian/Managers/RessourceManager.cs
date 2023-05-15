@@ -19,6 +19,43 @@ public class RessourceManager : MonoBehaviour
         }
     }
 
+    private bool PeuxAchetter(List<Cout> couts)
+    {
+        bool succes = true;
+        
+        for (int i = 0; i < couts.Count; i++)
+        {
+            for (int j = 0; j < _ressources.Count; j++)
+            {
+                if (couts[i].type == _ressources[j].GetTypeRessource() && !_ressources[j].PossedeRessource(couts[i].cout))
+                {
+                    succes = false;
+                }
+            }
+        }
+
+        return succes;
+    }
+
+    public bool Achetter(List<Cout> couts)
+    {
+        if (PeuxAchetter(couts))
+        {
+            for (int i = 0; i < couts.Count; i++)
+            {
+                for (int j = 0; j < _ressources.Count; j++)
+                {
+                    if (couts[i].type == _ressources[j].GetTypeRessource())
+                    {
+                        _ressources[j].Consommer(couts[i].cout);
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
     public void Awake()
     {
         // Si l'instance est null, alors l'instance est cette instance

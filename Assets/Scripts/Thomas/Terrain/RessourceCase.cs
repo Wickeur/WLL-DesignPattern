@@ -11,5 +11,6 @@ public class RessourceCase : Case
     {
         _type_ressource = typeRessource;
         _quantite_ressource = quantiteRessource;
+        SetCase(x, y, true);
     }
 }

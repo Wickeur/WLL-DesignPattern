@@ -26,4 +26,9 @@ public class Case : MonoBehaviour
     {
         return new Vector2(_position_x, _position_y);
     }
+
+    public bool GetEstOccupe()
+    {
+        return _est_occupe;
+    }
 }

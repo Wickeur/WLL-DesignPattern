@@ -13,7 +13,8 @@ public class Plateau : MonoBehaviour
     [SerializeField] private int _hauteur;
     [SerializeField] private int _largeur;
 
-    private List<GameObject> _cases;
+    [SerializeField] private List<GameObject> _cases_vides;
+    [SerializeField] private List<GameObject> _cases_ressources;
 
     public static Plateau instance;
 
@@ -36,11 +37,12 @@ public class Plateau : MonoBehaviour
         initPlateau();
     }
 
-    public Plateau(int hauteur, int largeur, List<GameObject> cases)
+    public Plateau(int hauteur, int largeur, List<GameObject> cases_vides, List<GameObject> cases_ressources)
     {
         _hauteur = hauteur;
         _largeur = largeur;
-        _cases = cases;
+        _cases_vides = cases_vides;
+        _cases_ressources = cases_ressources;
     }
 
     private void initPlateau()
@@ -55,20 +57,20 @@ public class Plateau : MonoBehaviour
                     GameObject NewCase = Instantiate(_case_vide_prefab, new Vector3(x, y, 0), Quaternion.identity);
                     NewCase.gameObject.transform.parent = _stockage_cases_vides.transform;
                     NewCase.GetComponent<Case>().SetCase(x, y, false);
-                    AjouterCase(NewCase);
+                    AjouterCaseListe(_cases_vides, NewCase);
                 }
                 else
                 {
                     GameObject NewCase = Instantiate(_case_pleine_prefab, new Vector3(x, y, 0), Quaternion.identity);
                     NewCase.gameObject.transform.parent = _stockage_cases_ressources.transform;
                     NewCase.GetComponent<Case>().SetCase(x, y, true);
-                    AjouterCase(NewCase);
+                    AjouterCaseListe(_cases_ressources, NewCase);
                 }
             }
         }
     }
 
-    public void AjouterCase(GameObject casePlateau)
+    public void AjouterCaseListe(List<GameObject> _cases, GameObject casePlateau)
     {
         _cases.Add(casePlateau);
     }

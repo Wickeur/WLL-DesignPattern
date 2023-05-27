@@ -6,7 +6,7 @@ public class UniteManager : MonoBehaviour
 {
     public static UniteManager _instance;
     [SerializeField] private GameObject _recolteur;
-    private List<GameObject> _unites;
+    private List<GameObject> _unites = new List<GameObject>();
 
     public void Awake()
     {
@@ -40,6 +40,7 @@ public class UniteManager : MonoBehaviour
         {
             _unites[i].GetComponent<Unite>().PlayTurn();
         }
+        
     }
 
     public void ActualiserPositionVisuelUnites()

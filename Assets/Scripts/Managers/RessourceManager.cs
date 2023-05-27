@@ -6,7 +6,7 @@ public class RessourceManager : MonoBehaviour
 {
     public static RessourceManager _instance;
 
-    [SerializeField] private List<Ressource> _ressources; // Liste des ressources
+    [SerializeField] private List<Ressource> _ressources = new List<Ressource>(); // Liste des ressources
     [SerializeField] private int _quantite_ressource_initiale = 50; // Quantité de ressource de départ
 
     public void InitialiserRessources()

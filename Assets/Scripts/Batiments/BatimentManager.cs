@@ -6,7 +6,7 @@ using UnityEngine;
 public class BatimentManager : MonoBehaviour
 {
     public static BatimentManager _instance;
-    public List<Batiments> _batiments;
+    public List<Batiments> _batiments = new List<Batiments>();
 
     public void Awake()
     {

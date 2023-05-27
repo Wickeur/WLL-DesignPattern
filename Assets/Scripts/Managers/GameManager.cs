@@ -21,13 +21,16 @@ public class GameManager : MonoBehaviour
     
     public IEnumerator SystemTurn()
     {
+        int nbTurn = 0;
         UniteManager UM = UniteManager._instance;
         BatimentManager BM = BatimentManager._instance;
         
-        while (_end != false)
+        while (_end == false)
         {
             yield return new WaitForSeconds(_interval_turn);
-
+            nbTurn++;
+            Debug.Log("Le tour " + nbTurn + " vien de débuter !");
+            
             UM.PlayTurnUnites();
             BM.PlayTurnBatiments();
 

@@ -6,7 +6,7 @@ public class Batiments : MonoBehaviour
 {
     [SerializeField] protected int _intervalle;
     protected int _nbTourAvantProduction = 0;
-    [SerializeField] protected List<Cout> _coutsProduction;
+    [SerializeField] protected List<Cout> _coutsProduction = new List<Cout>();
 
     public virtual void Produire()
     {

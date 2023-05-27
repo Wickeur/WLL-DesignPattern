@@ -1,5 +1,8 @@
+using System;
+using UnityEngine;
 
-public class Cout
+[Serializable]
+public class Cout : MonoBehaviour
 {
     public TypeRessource type;
     public int cout;

@@ -13,7 +13,7 @@ public class Plateau : MonoBehaviour
     [SerializeField] private int _hauteur;
     [SerializeField] private int _largeur;
 
-    [SerializeField] private List<GameObject> _cases;
+    [SerializeField] private List<GameObject> _cases = new List<GameObject>();
 
     public static Plateau instance;
 

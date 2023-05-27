@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GenerateurRecolteur : Batiments
 {
-    [SerializeField] private List<TypeRessource> typeRessourcesRecolteur;
+    [SerializeField] private List<TypeRessource> typeRessourcesRecolteur = new List<TypeRessource>();
     
     public GenerateurRecolteur(int Intervalle, List<Cout> CoutsProduction) : base(Intervalle,CoutsProduction)
     {
@@ -19,6 +19,8 @@ public class GenerateurRecolteur : Batiments
         RecolteurScript.SetTypeRessources(typeRessourcesRecolteur);
         
         UniteManager._instance.AjouterUnite(Recolteur);
+        
+        Debug.Log("Un recolteur vien d'être crée");
     }
 
     public override void PlayTurn()

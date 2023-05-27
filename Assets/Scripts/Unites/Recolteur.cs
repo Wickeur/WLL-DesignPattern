@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Recolteur : Unite
 {
-    private List<TypeRessource> _typesRessources_Recoltable = new List<TypeRessource>();
+    [SerializeField] private List<TypeRessource> _typesRessources_Recoltable = new List<TypeRessource>();
     [SerializeField] private Outils _outil;
 
     public Recolteur(int vitesse, Cout coutParTour, Case la_case,List<TypeRessource> typesRessources, Outils outil) : base(vitesse, coutParTour, la_case)
     {
         _outil = outil;
         _typesRessources_Recoltable = typesRessources;
+    }
+
+    public List<TypeRessource> GetTypeRessources()
+    {
+        return _typesRessources_Recoltable;
     }
 
     public void SetTypeRessources(List<TypeRessource> TypesRessources)

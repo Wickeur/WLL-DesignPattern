@@ -37,33 +37,33 @@ public class Recolteur : Unite
 
             Case cible = Plateau.instance.checkCaseProche(_case, _typesRessources_Recoltable);
 
-            while (_case.getX() != cible.getX() && vitesse_restante > 0)
+            while (_case.GetX() != cible.GetX() && vitesse_restante > 0)
             {
-                if (_case.getX() < cible.getX())
+                if (_case.GetX() < cible.GetX())
                 {
-                    case_suivante = Plateau.instance.trouverCaseParCoordonnees(_case.getX() + 1, _case.getY());
+                    case_suivante = Plateau.instance.trouverCaseParCoordonnees(_case.GetX() + 1, _case.GetY());
                     SeDeplacer(case_suivante);
                     vitesse_restante--;
                 }
                 else
                 {
-                    case_suivante = Plateau.instance.trouverCaseParCoordonnees(_case.getX() - 1, _case.getY());
+                    case_suivante = Plateau.instance.trouverCaseParCoordonnees(_case.GetX() - 1, _case.GetY());
                     SeDeplacer(case_suivante);
                     vitesse_restante--;
                 }
             }
 
-            while (_case.getY() != cible.getY() && vitesse_restante > 0)
+            while (_case.GetY() != cible.GetY() && vitesse_restante > 0)
             {
-                if (_case.getX() < cible.getX())
+                if (_case.GetX() < cible.GetX())
                 {
-                    case_suivante = Plateau.instance.trouverCaseParCoordonnees(_case.getX() + 1, _case.getY());
+                    case_suivante = Plateau.instance.trouverCaseParCoordonnees(_case.GetX() + 1, _case.GetY());
                     SeDeplacer(case_suivante);
                     vitesse_restante--;
                 }
                 else
                 {
-                    case_suivante = Plateau.instance.trouverCaseParCoordonnees(_case.getX() - 1, _case.getY());
+                    case_suivante = Plateau.instance.trouverCaseParCoordonnees(_case.GetX() - 1, _case.GetY());
                     SeDeplacer(case_suivante);
                     vitesse_restante--;
                 }

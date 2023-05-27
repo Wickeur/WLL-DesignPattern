@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Unite : MonoBehaviour
 {
-    [SerializeField] private int _vitesse;
+    [SerializeField] protected int _vitesse;
     [SerializeField] private Cout _cout_par_tour;
     private bool _nourri;
     private int _quantite_experience;
-    private Case _case;
+    protected Case _case;
 
     public Unite(int vitesse, Cout coutParTour, Case la_case)
     {
@@ -40,5 +40,15 @@ public class Unite : MonoBehaviour
     public void DevenirExpert()
     {
 
+    }
+
+    public virtual void PlayTurn()
+    {
+        
+    }
+
+    public int getVitesse()
+    {
+        return _vitesse;
     }
 }

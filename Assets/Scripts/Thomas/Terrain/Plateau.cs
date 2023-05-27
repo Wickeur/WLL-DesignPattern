@@ -68,6 +68,50 @@ public class Plateau : MonoBehaviour
         }
     }
 
+    // fonction param case et ressource return case la plus proche avec la ressource
+    /*
+Void checkcaseproche( pos , list typeressource)
+{
+Vector 2 Pos la plus proches = null;
+Pour tout mes cases ressource : 
+        If cases[i].getcomponent<CaseRessource>() != null :
+                 Pour tout mes typeressource : 
+                           Si casesRessource.TypeRessource == typeressource [j]
+                                     Ici comparer la distance de la position de la nouvelle case à celle de la "Pos la plus proches"
+                                              si nouvelle position est plus proche alors Pos la plus proche = nouvelle pos
+
+}*/
+    public Case checkCaseProche(Case _case, List<TypeRessource> TypesRessources)
+    {
+        Case caseLaPlusProche = _case;
+        for (int i = 0; i < _cases.Count; i++)
+        {
+            if (_cases[i].GetComponent<RessourceCase>() != null)
+            {
+                for (int ressource = 0; i < TypesRessources.Count; ressource++)
+                {
+                    if (_cases[i].GetComponent<RessourceCase>().getTypeRessource() == TypesRessources[ressource])
+                    {
+                        int meilleurDifference = _hauteur + _largeur;
+                        if(meilleurDifference < CalculDiffEntreDeuxCases(_case, _cases[i].GetComponent<RessourceCase>()))
+                        {
+                            meilleurDifference = CalculDiffEntreDeuxCases(_case, _cases[i].GetComponent<RessourceCase>());
+                            caseLaPlusProche = _cases[i].GetComponent<RessourceCase>();
+                        }
+                    }
+                }
+            }
+        }
+        return caseLaPlusProche;
+    }
+
+    public int CalculDiffEntreDeuxCases(Case depart, Case cible)
+    {
+        int difference = Mathf.Abs(depart.getX() - cible.getX());
+        difference += Mathf.Abs(depart.getY() - cible.getY());
+        return difference;
+    }
+
     public void AjouterCaseListe(List<GameObject> _cases, GameObject casePlateau)
     {
         _cases.Add(casePlateau);

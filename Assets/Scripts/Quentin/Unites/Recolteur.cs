@@ -23,6 +23,16 @@ public class Recolteur : Unite
         _outil = Outil;
     }
 
+    public override void PlayTurn()
+    {
+        int vitesse_restante = _vitesse;
+        while(vitesse_restante != 0)
+        {
+            if(_case)
+            vitesse_restante--;
+        }
+    }
+
     public void Recolter()
     {
 

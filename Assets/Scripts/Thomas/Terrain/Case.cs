@@ -31,4 +31,14 @@ public class Case : MonoBehaviour
     {
         return _est_occupe;
     }
+
+    public int getX()
+    {
+        return _position_x;
+    }
+
+    public int getY()
+    {
+        return _position_y;
+    }
 }

@@ -15,6 +15,16 @@ public class Case : MonoBehaviour
         _est_occupe = occupe;
     }
 
+    public int GetX()
+    {
+        return _position_x;
+    }
+
+    public int GetY()
+    {
+        return _position_y;
+    }
+
     public void SetCase(int x, int y, bool occupe)
     {
         _position_x = x;
@@ -30,5 +40,10 @@ public class Case : MonoBehaviour
     public bool GetEstOccupe()
     {
         return _est_occupe;
+    }
+    
+    public void SetEstOccupe(bool etat)
+    {
+        _est_occupe = etat;
     }
 }

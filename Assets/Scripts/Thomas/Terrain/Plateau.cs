@@ -13,8 +13,7 @@ public class Plateau : MonoBehaviour
     [SerializeField] private int _hauteur;
     [SerializeField] private int _largeur;
 
-    [SerializeField] private List<GameObject> _cases_vides;
-    [SerializeField] private List<GameObject> _cases_ressources;
+    [SerializeField] private List<GameObject> _cases;
 
     public static Plateau instance;
 
@@ -37,12 +36,11 @@ public class Plateau : MonoBehaviour
         initPlateau();
     }
 
-    public Plateau(int hauteur, int largeur, List<GameObject> cases_vides, List<GameObject> cases_ressources)
+    public Plateau(int hauteur, int largeur, List<GameObject> cases)
     {
         _hauteur = hauteur;
         _largeur = largeur;
-        _cases_vides = cases_vides;
-        _cases_ressources = cases_ressources;
+        _cases = cases;;
     }
 
     private void initPlateau()
@@ -57,14 +55,14 @@ public class Plateau : MonoBehaviour
                     GameObject NewCase = Instantiate(_case_vide_prefab, new Vector3(x, y, 0), Quaternion.identity);
                     NewCase.gameObject.transform.parent = _stockage_cases_vides.transform;
                     NewCase.GetComponent<Case>().SetCase(x, y, false);
-                    AjouterCaseListe(_cases_vides, NewCase);
+                    AjouterCaseListe(_cases, NewCase);
                 }
                 else
                 {
                     GameObject NewCase = Instantiate(_case_pleine_prefab, new Vector3(x, y, 0), Quaternion.identity);
                     NewCase.gameObject.transform.parent = _stockage_cases_ressources.transform;
                     NewCase.GetComponent<Case>().SetCase(x, y, true);
-                    AjouterCaseListe(_cases_ressources, NewCase);
+                    AjouterCaseListe(_cases, NewCase);
                 }
             }
         }
@@ -73,5 +71,23 @@ public class Plateau : MonoBehaviour
     public void AjouterCaseListe(List<GameObject> _cases, GameObject casePlateau)
     {
         _cases.Add(casePlateau);
+    }
+    
+    public List<Case> GetCasesNonOccupe()
+    {
+        List<Case> casesNonOccupe = new List<Case>();
+        for (int i = 0; i < _cases.Count; i++)
+        {
+            if(!_cases[i].GetComponent<Case>().GetEstOccupe())
+            {
+                casesNonOccupe.Add(_cases[i].GetComponent<Case>());
+            }
+        }
+        return casesNonOccupe;
+    }
+
+    public void deplacerSurPlateau(GameObject gameObject, Case case_cible)
+    {
+        gameObject.transform.position = case_cible.transform.position;
     }
 }

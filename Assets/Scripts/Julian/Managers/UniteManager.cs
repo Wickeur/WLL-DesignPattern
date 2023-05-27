@@ -7,7 +7,7 @@ public class UniteManager : MonoBehaviour
     public static UniteManager _instance;
     [SerializeField] private GameObject _recolteur;
     private List<GameObject> _unites;
-    
+
     public void Awake()
     {
         // Si l'instance est null, alors l'instance est cette instance
@@ -31,5 +31,7 @@ public class UniteManager : MonoBehaviour
     public void AjouterUnite(GameObject unite)
     {
         _unites.Add(unite);
+        unite.GetComponent<Unite>().InitCaseDepart();
+        // ajouter set pos pour l'unite
     }
 }

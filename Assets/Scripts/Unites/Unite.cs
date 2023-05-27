@@ -8,7 +8,7 @@ public class Unite : MonoBehaviour
     [SerializeField] private Cout _cout_par_tour;
     private bool _nourri;
     private int _quantite_experience;
-    protected Case _case;
+    public Case _case;
 
     public Unite(int vitesse, Cout coutParTour, Case la_case)
     {

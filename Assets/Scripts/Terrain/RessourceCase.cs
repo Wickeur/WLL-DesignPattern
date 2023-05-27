@@ -22,4 +22,10 @@ public class RessourceCase : Case
         _quantite_ressource = quantiteRessource;
         SetCase(x, y, true);
     }
+
+    public TypeRessource getTypeRessource()
+    {
+        return _type_ressource;
+    }
+
 }

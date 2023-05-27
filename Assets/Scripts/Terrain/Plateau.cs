@@ -90,4 +90,50 @@ public class Plateau : MonoBehaviour
     {
         gameObject.transform.position = case_cible.transform.position;
     }
+
+    public Case checkCaseProche(Case _case, List<TypeRessource> TypesRessources)
+    {
+        Case caseLaPlusProche = _case;
+        for (int i = 0; i < _cases.Count; i++)
+        {
+            if (_cases[i].GetComponent<RessourceCase>() != null)
+            {
+                for (int ressource = 0; i < TypesRessources.Count; ressource++)
+                {
+                    if (_cases[i].GetComponent<RessourceCase>().getTypeRessource() == TypesRessources[ressource])
+                    {
+                        int meilleurDifference = _hauteur + _largeur;
+                        if (meilleurDifference < CalculDiffEntreDeuxCases(_case, _cases[i].GetComponent<RessourceCase>()))
+                        {
+                            meilleurDifference = CalculDiffEntreDeuxCases(_case, _cases[i].GetComponent<RessourceCase>());
+                            caseLaPlusProche = _cases[i].GetComponent<RessourceCase>();
+                        }
+                    }
+                }
+            }
+        }
+        return caseLaPlusProche;
+    }
+
+    public int CalculDiffEntreDeuxCases(Case depart, Case cible)
+    {
+        int difference = Mathf.Abs(depart.GetX() - cible.GetX());
+        difference += Mathf.Abs(depart.GetY() - cible.GetY());
+        return difference;
+    }
+
+    public Case trouverCaseParCoordonnees(int x, int y)
+    {
+        Case caseTrouvee = null;
+        for (int i = 0; i < _cases.Count; i++)
+        {
+            if (_cases[i].GetComponent<Case>().GetX() == x && _cases[i].GetComponent<Case>().GetY() == y)
+            {
+                caseTrouvee = _cases[i].GetComponent<Case>();
+                break;
+            }
+        }
+        return caseTrouvee;
+    }
+
 }

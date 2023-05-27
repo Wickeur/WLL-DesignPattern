@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     {
         demarrerUnePartie();
         RessourceManager._instance.InitialiserRessources();
-
         StartCoroutine(SystemTurn());
     }
     
@@ -34,6 +33,5 @@ public class GameManager : MonoBehaviour
 
             UM.ActualiserPositionVisuelUnites();
         }
-
     }
 }

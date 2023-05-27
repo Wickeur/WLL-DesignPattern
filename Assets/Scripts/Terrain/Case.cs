@@ -41,7 +41,12 @@ public class Case : MonoBehaviour
     {
         return _est_occupe;
     }
-    
+
+    public void SetEstoccupe(bool occupe)
+    {
+        _est_occupe = occupe;
+    }
+
     public void SetEstOccupe(bool etat)
     {
         _est_occupe = etat;

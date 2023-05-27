@@ -34,7 +34,9 @@ public class Unite : MonoBehaviour
 
     public void SeDeplacer(Case la_case)
     {
-
+        _case.SetEstoccupe(false);
+        la_case.SetEstoccupe(true);
+        _case = la_case;
     }
 
     public void DevenirExpert()

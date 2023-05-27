@@ -34,4 +34,9 @@ public class UniteManager : MonoBehaviour
         unite.GetComponent<Unite>().InitCaseDepart();
         // ajouter set pos pour l'unite
     }
+
+    public void AmeliorerUnOutil()
+    {
+        
+    }
 }

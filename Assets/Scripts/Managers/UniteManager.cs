@@ -32,7 +32,23 @@ public class UniteManager : MonoBehaviour
     {
         _unites.Add(unite);
         unite.GetComponent<Unite>().InitCaseDepart();
-        // ajouter set pos pour l'unite
+    }
+
+    public void PlayTurnUnites()
+    {
+        for (int i = 0; i < _unites.Count; i++)
+        {
+            _unites[i].GetComponent<Unite>().PlayTurn();
+        }
+    }
+
+    public void ActualiserPositionVisuelUnites()
+    {
+        for (int i = 0; i < _unites.Count; i++)
+        {
+            Unite myUnite = _unites[i].GetComponent<Unite>();
+            _unites[i].transform.position = new Vector3(myUnite._case.GetX(), myUnite._case.GetY(), 0);
+        }
     }
 
     public void AmeliorerUnOutil()

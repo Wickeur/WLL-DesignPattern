@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GenerateurOutil : Batiments
 {
-    public GenerateurOutil(int Intervalle, List<Cout> CoutsAmelioration) : base(Intervalle,CoutsAmelioration)
+    public GenerateurOutil(int Intervalle, List<Cout> CoutsProduction) : base(Intervalle,CoutsProduction)
     {
 
     }

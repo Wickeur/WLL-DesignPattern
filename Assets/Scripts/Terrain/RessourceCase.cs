@@ -27,4 +27,5 @@ public class RessourceCase : Case
     {
         return _type_ressource;
     }
+
 }

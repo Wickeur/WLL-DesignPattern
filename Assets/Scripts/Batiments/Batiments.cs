@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class Batiments : MonoBehaviour
 {
-    [SerializeField] private int _intervalle;
-    [SerializeField] private List<Cout> _coutsAmelioration;
+    [SerializeField] protected int _intervalle;
+    protected int _nbTourAvantProduction = 0;
+    [SerializeField] protected List<Cout> _coutsProduction;
 
-    public bool Ameliorer()
+    public virtual void Produire()
     {
-        return RessourceManager._instance.Achetter(_coutsAmelioration);
+        
     }
     
-    public Batiments(int Intervalle, List<Cout> CoutsAmelioration)
+    public Batiments(int Intervalle, List<Cout> CoutsProduction)
     {
         _intervalle = Intervalle;
-        _coutsAmelioration = CoutsAmelioration;
+        _coutsProduction = CoutsProduction;
+    }
+
+    public virtual void PlayTurn()
+    {
+        
     }
     
 }

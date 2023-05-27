@@ -117,8 +117,8 @@ public class Plateau : MonoBehaviour
 
     public int CalculDiffEntreDeuxCases(Case depart, Case cible)
     {
-        int difference = Mathf.Abs(depart.getX() - cible.getX());
-        difference += Mathf.Abs(depart.getY() - cible.getY());
+        int difference = Mathf.Abs(depart.GetX() - cible.GetX());
+        difference += Mathf.Abs(depart.GetY() - cible.GetY());
         return difference;
     }
 
@@ -127,7 +127,7 @@ public class Plateau : MonoBehaviour
         Case caseTrouvee = null;
         for (int i = 0; i < _cases.Count; i++)
         {
-            if (_cases[i].GetComponent<Case>().getX() == x && _cases[i].GetComponent<Case>().getY() == y)
+            if (_cases[i].GetComponent<Case>().GetX() == x && _cases[i].GetComponent<Case>().GetY() == y)
             {
                 caseTrouvee = _cases[i].GetComponent<Case>();
                 break;
@@ -135,4 +135,5 @@ public class Plateau : MonoBehaviour
         }
         return caseTrouvee;
     }
+
 }

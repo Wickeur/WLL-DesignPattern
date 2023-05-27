@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private bool _end = false;
+    [SerializeField] private float _interval_turn = 2f;
     public void demarrerUnePartie()
     {
         Debug.Log("La partie a démarée");
@@ -14,11 +16,22 @@ public class GameManager : MonoBehaviour
     {
         demarrerUnePartie();
         RessourceManager._instance.InitialiserRessources();
+        StartCoroutine(SystemTurn());
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public IEnumerator SystemTurn()
     {
+        UniteManager UM = UniteManager._instance;
+        BatimentManager BM = BatimentManager._instance;
         
+        while (_end != false)
+        {
+            yield return new WaitForSeconds(_interval_turn);
+
+            UM.PlayTurnUnites();
+            BM.PlayTurnBatiments();
+
+            UM.ActualiserPositionVisuelUnites();
+        }
     }
 }

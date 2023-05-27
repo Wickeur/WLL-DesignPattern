@@ -6,7 +6,7 @@ public class GenerateurRecolteur : Batiments
 {
     [SerializeField] private List<TypeRessource> typeRessourcesRecolteur;
     
-    public GenerateurRecolteur(int Intervalle, List<Cout> CoutsAmelioration) : base(Intervalle,CoutsAmelioration)
+    public GenerateurRecolteur(int Intervalle, List<Cout> CoutsProduction) : base(Intervalle,CoutsProduction)
     {
         
     }
@@ -19,5 +19,23 @@ public class GenerateurRecolteur : Batiments
         RecolteurScript.SetTypeRessources(typeRessourcesRecolteur);
         
         UniteManager._instance.AjouterUnite(Recolteur);
+    }
+
+    public override void PlayTurn()
+    {
+        _nbTourAvantProduction --;
+        if (_nbTourAvantProduction <= 0)
+        {
+            Produire();
+            _nbTourAvantProduction = _intervalle;
+        }
+    }
+    
+    public override void Produire()
+    {
+        if (RessourceManager._instance.Achetter(_coutsProduction))
+        {
+            CreerRecolteur();
+        }
     }
 }

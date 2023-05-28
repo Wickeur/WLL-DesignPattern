@@ -93,19 +93,24 @@ public class Plateau : MonoBehaviour
 
     public Case checkCaseProche(Case _case, List<TypeRessource> TypesRessources)
     {
-        Case caseLaPlusProche = _case;
+        Case caseLaPlusProche = null;
+        int distanceCaseLaPlusProche = 999999; // Valeur absurbe
+        
         for (int i = 0; i < _cases.Count; i++)
         {
-            if (_cases[i].GetComponent<RessourceCase>() != null)
+            RessourceCase CaseRessource = _cases[i].GetComponent<RessourceCase>();
+            if (CaseRessource != null)
             {
-                for (int ressource = 0; i < TypesRessources.Count; ressource++)
+                for (int ressource = 0; ressource < TypesRessources.Count; ressource++)
                 {
-                    if (_cases[i].GetComponent<RessourceCase>().getTypeRessource() == TypesRessources[ressource])
+                    if (CaseRessource.getTypeRessource() == TypesRessources[ressource])
                     {
-                        int meilleurDifference = _hauteur + _largeur;
-                        if (meilleurDifference < CalculDiffEntreDeuxCases(_case, _cases[i].GetComponent<RessourceCase>()))
+                        Case caseCible = _cases[i].GetComponent<Case>();
+                        int distance = CalculDistanceEntreDeuxCases(_case, _cases[i].GetComponent<Case>());
+                            
+                        if (distance < distanceCaseLaPlusProche)
                         {
-                            meilleurDifference = CalculDiffEntreDeuxCases(_case, _cases[i].GetComponent<RessourceCase>());
+                            distanceCaseLaPlusProche = distance;
                             caseLaPlusProche = _cases[i].GetComponent<RessourceCase>();
                         }
                     }
@@ -115,25 +120,25 @@ public class Plateau : MonoBehaviour
         return caseLaPlusProche;
     }
 
-    public int CalculDiffEntreDeuxCases(Case depart, Case cible)
+    public int CalculDistanceEntreDeuxCases(Case depart, Case cible)
     {
-        int difference = Mathf.Abs(depart.GetX() - cible.GetX());
-        difference += Mathf.Abs(depart.GetY() - cible.GetY());
+        int difference = Mathf.Abs(cible.GetX() - depart.GetX());
+        difference += Mathf.Abs(cible.GetY() - depart.GetY());
         return difference;
     }
 
     public Case trouverCaseParCoordonnees(int x, int y)
     {
-        Case caseTrouvee = null;
         for (int i = 0; i < _cases.Count; i++)
         {
             if (_cases[i].GetComponent<Case>().GetX() == x && _cases[i].GetComponent<Case>().GetY() == y)
             {
-                caseTrouvee = _cases[i].GetComponent<Case>();
-                break;
+                return _cases[i].GetComponent<Case>();
             }
         }
-        return caseTrouvee;
+        
+        Debug.Log(x + "  :  " + y);
+        return null;
     }
 
 }

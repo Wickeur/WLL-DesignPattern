@@ -25,6 +25,7 @@ public class Unite : MonoBehaviour
         List<Case> casesNonOccupe = Plateau.instance.GetCasesNonOccupe();
         int randomCase = Random.Range(0, casesNonOccupe.Count);
         _case = casesNonOccupe[randomCase];
+        _case.SetEstoccupe(true);
     }
 
     public void Ameliorer()

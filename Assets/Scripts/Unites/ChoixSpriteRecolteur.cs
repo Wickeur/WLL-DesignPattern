@@ -29,7 +29,7 @@ public class ChoixSpriteRecolteur : MonoBehaviour
             _mineur.gameObject.SetActive(false);
             _paysan.gameObject.SetActive(false);
         }
-        if (_recolteur.GetTypeRessources()[0] == TypeRessource.PIERRE && _recolteur.GetTypeRessources()[1] == TypeRessource.OR || _recolteur.GetTypeRessources()[1] == TypeRessource.PIERRE && _recolteur.GetTypeRessources()[0] == TypeRessource.OR)
+        if (_recolteur.GetTypeRessources()[0] == TypeRessource.PIERRE || _recolteur.GetTypeRessources()[0] == TypeRessource.OR)
         {
             _bucheron.gameObject.SetActive(false);
             _mineur.gameObject.SetActive(true);

@@ -40,6 +40,21 @@ public class Unite : MonoBehaviour
         _case = la_case;
     }
 
+    public void seNourrir()
+    {
+        List<Cout> couts = new List<Cout>();
+        if (!RessourceManager._instance.Achetter(_cout_par_tour))
+        {
+            mourir();
+        }
+        _quantite_experience++;
+    }
+
+    public void mourir()
+    {
+        UniteManager._instance.tuerUnite(this);
+    }
+
     public void DevenirExpert()
     {
 
@@ -47,7 +62,7 @@ public class Unite : MonoBehaviour
 
     public virtual void PlayTurn()
     {
-        
+        seNourrir();
     }
 
     public int getVitesse()

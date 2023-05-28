@@ -28,8 +28,16 @@ public class RessourceCase : Case
         return _type_ressource;
     }
 
-    public void PerdreRessource(int quantite)
+    public int PerdreRessource(int quantite)
     {
         _quantite_ressource -= quantite;
+        if (_quantite_ressource <= 0)
+        {
+            int valeurAbsolue = _quantite_ressource * -1;
+            Plateau.instance.changerRessourceCaseEnCase(this);
+            return quantite - valeurAbsolue;
+        }
+
+        return quantite;
     }
 }

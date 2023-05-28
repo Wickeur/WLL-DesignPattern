@@ -5,7 +5,7 @@ using UnityEngine;
 public class Outil_Recolte : Outils
 {
     string _nom = "";
-    int _rendement = 1;
+    [SerializeField] int _rendement = 1;
     TypeRessource _typeRessource;
 
     public Outil_Recolte(string nom, int rendement, TypeRessource typeRessource, int niveau) : base (niveau)
@@ -13,5 +13,10 @@ public class Outil_Recolte : Outils
         _nom = nom;
         _rendement = rendement;
         _typeRessource = typeRessource;
+    }
+
+    public int getRendement()
+    {
+        return _rendement;
     }
 }

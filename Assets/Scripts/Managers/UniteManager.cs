@@ -56,4 +56,31 @@ public class UniteManager : MonoBehaviour
     {
         
     }
+
+    public void tuerUnite(Unite cible)
+    {
+        _unites.Remove(cible.gameObject);
+        Destroy(cible.gameObject);
+        checkGameOver();
+    }
+
+    public void checkGameOver()
+    { 
+        if (_unites.Count == 0)
+        {
+            Debug.Log("Vous avez perdu !! Vous n'avez plus d'unitées.");
+            GameManager._instance.setEnd(true);
+        }
+    }
+
+    public void ajoutCaseAUniteQuiEnAPas(Case cible, Case remplacant)
+    {
+        for (int i = 0;  i <_unites.Count; i++)
+        {
+            if (_unites[i].GetComponent<Unite>()._case == null)
+            {
+                _unites[i].GetComponent<Unite>()._case = remplacant;
+            }
+        }
+    }
 }

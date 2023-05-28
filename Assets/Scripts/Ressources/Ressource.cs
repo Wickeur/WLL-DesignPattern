@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ressource : MonoBehaviour
 {
     // SerializeField = permet de définir dans unity les variables privées
     [SerializeField] private int _quantite = 0;
     [SerializeField] private TypeRessource _type_ressource;
+    public TMPro.TextMeshProUGUI _texte_ressource;
 
     public Ressource(int quantite, TypeRessource typeRessource)
     {

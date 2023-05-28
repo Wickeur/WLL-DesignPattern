@@ -28,7 +28,7 @@ public class RessourceCase : Case
         return _type_ressource;
     }
 
-    public PerdreRessource(int quantite)
+    public void PerdreRessource(int quantite)
     {
         _quantite_ressource -= quantite;
     }

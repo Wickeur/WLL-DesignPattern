@@ -568,7 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vitesse: 3
   _case: {fileID: 0}
-  _typesRessources_Recoltable: 02000000
+  _typesRessources_Recoltable: 0000000001000000
   _outil: {fileID: 361983074}
 --- !u!4 &361983076
 Transform:

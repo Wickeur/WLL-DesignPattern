@@ -1,5 +1,5 @@
 # WLL-DesignPattern
-TP noté
+Projet
 
 Leuliet Quentin  
 Wicke Julian  

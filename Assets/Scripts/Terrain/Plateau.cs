@@ -52,20 +52,25 @@ public class Plateau : MonoBehaviour
                 int random = Random.Range(0, 2);
                 if (random == 0)
                 {
-                    GameObject NewCase = Instantiate(_case_vide_prefab, new Vector3(x, y, 0), Quaternion.identity);
+                    GameObject NewCase = CreerCase(_case_vide_prefab, x, y);
                     NewCase.gameObject.transform.parent = _stockage_cases_vides.transform;
                     NewCase.GetComponent<Case>().SetCase(x, y, false);
                     AjouterCaseListe(_cases, NewCase);
                 }
                 else
                 {
-                    GameObject NewCase = Instantiate(_case_pleine_prefab, new Vector3(x, y, 0), Quaternion.identity);
+                    GameObject NewCase = CreerCase(_case_pleine_prefab, x, y);
                     NewCase.gameObject.transform.parent = _stockage_cases_ressources.transform;
                     NewCase.GetComponent<Case>().SetCase(x, y, true);
                     AjouterCaseListe(_cases, NewCase);
                 }
             }
         }
+    }
+
+    public GameObject CreerCase(GameObject prefab, int x, int y)
+    {
+        return Instantiate(prefab, new Vector3(x, y, 0), Quaternion.identity);
     }
 
     public void AjouterCaseListe(List<GameObject> _cases, GameObject casePlateau)
@@ -141,4 +146,37 @@ public class Plateau : MonoBehaviour
         return null;
     }
 
+    public void changerRessourceCaseEnCase(RessourceCase ressourceCase)
+    {
+        GameObject NewCase = CreerCase(_case_vide_prefab, ressourceCase.GetX(), ressourceCase.GetY());
+        NewCase.GetComponent<Case>().SetCase(ressourceCase.GetX(), ressourceCase.GetY(), true);
+        NewCase.gameObject.transform.parent = _stockage_cases_vides.transform;
+        UniteManager._instance.ajoutCaseAUniteQuiEnAPas(ressourceCase, NewCase.GetComponent<Case>());
+        _cases.Remove(ressourceCase.gameObject);
+        Destroy(ressourceCase.gameObject);
+        _cases.Add(NewCase);
+        
+    }
+
+    public int nbRessourceCaseRestantes()
+    {
+        int compteur = 0;
+        for (int i = 0; i < _cases.Count; i++)
+        {
+            if(_cases[i].GetComponent<RessourceCase>() != null)
+            {
+                compteur++;
+            }
+        }
+        return compteur;
+    }
+
+    public void checkGameOver()
+    {
+        if (nbRessourceCaseRestantes() == 0)
+        {
+            Debug.Log("Vous avez perdu !! Vous n'avez plus d'unitées.");
+            GameManager._instance.setEnd(true);
+        }
+    }
 }

@@ -9,6 +9,12 @@ public class RessourceManager : MonoBehaviour
     [SerializeField] private List<Ressource> _ressources = new List<Ressource>(); // Liste des ressources
     [SerializeField] private int _quantite_ressource_initiale = 50; // Quantité de ressource de départ
 
+    public List<Ressource> getRessources()
+    {
+        return _ressources;
+    }
+
+
     public void InitialiserRessources()
     {
         for(int i = 0; i < _ressources.Count; i++)
@@ -35,6 +41,21 @@ public class RessourceManager : MonoBehaviour
         return succes;
     }
 
+    private bool PeuxAchetter(Cout cout)
+    {
+        bool succes = true;
+
+        for (int j = 0; j < _ressources.Count; j++)
+        {
+            if (cout.type == _ressources[j].GetTypeRessource() && !_ressources[j].PossedeRessource(cout.cout))
+            {
+                 succes = false;
+            }
+        }
+
+        return succes;
+    }
+
     public bool Achetter(List<Cout> couts)
     {
         if (PeuxAchetter(couts))
@@ -49,6 +70,23 @@ public class RessourceManager : MonoBehaviour
                     }
                 }
             }
+            return true;
+        }
+        return false;
+    }
+
+    public bool Achetter(Cout cout)
+    {
+        if (PeuxAchetter(cout))
+        {
+            for (int j = 0; j < _ressources.Count; j++)
+            {
+                if (cout.type == _ressources[j].GetTypeRessource())
+                {
+                    _ressources[j].Consommer(cout.cout);
+                }
+            }
+
             return true;
         }
         return false;

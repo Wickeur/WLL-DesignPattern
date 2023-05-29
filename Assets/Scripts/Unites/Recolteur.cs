@@ -5,9 +5,9 @@ using UnityEngine;
 public class Recolteur : Unite
 {
     [SerializeField] private List<TypeRessource> _typesRessources_Recoltable = new List<TypeRessource>();
-    [SerializeField] private Outils _outil;
+    [SerializeField] private Outil_Recolte _outil;
 
-    public Recolteur(int vitesse, Cout coutParTour, Case la_case,List<TypeRessource> typesRessources, Outils outil) : base(vitesse, coutParTour, la_case)
+    public Recolteur(int vitesse, Cout coutParTour, Case la_case,List<TypeRessource> typesRessources, Outil_Recolte outil) : base(vitesse, coutParTour, la_case)
     {
         _outil = outil;
         _typesRessources_Recoltable = typesRessources;
@@ -23,13 +23,14 @@ public class Recolteur : Unite
         _typesRessources_Recoltable = TypesRessources;
     }
 
-    public void SetOutil(Outils Outil)
+    public void SetOutil(Outil_Recolte Outil)
     {
         _outil = Outil;
     }
 
     public override void PlayTurn()
     {
+        base.PlayTurn();
         int vitesse_restante = _vitesse;
         Case case_suivante = null;
         
@@ -87,6 +88,20 @@ public class Recolteur : Unite
 
     public void Recolter()
     {
+        List<Ressource> mesRessources = RessourceManager._instance.getRessources();
+        RessourceCase caseARecolter = _case.GetComponent<RessourceCase>();
         Debug.Log("Une unité récolte");
+        for (int i = 0; i < mesRessources.Count; i++)
+        {
+            if(mesRessources[i].GetTypeRessource() == caseARecolter.getTypeRessource())
+            {
+                mesRessources[i].Ajouter(caseARecolter.PerdreRessource(_outil.getRendement()));
+            }
+        }
     }
+    /*recolter()
+ressource manager liste ressources chercher bon type ressource lui ajouter() la valeur de la case
+perdre ressource à la case
+passer perdre essource en int pour la valeur de retour
+case ressource devient classique (créer fonction) */
 }

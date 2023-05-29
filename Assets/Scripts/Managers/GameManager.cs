@@ -6,6 +6,19 @@ public class GameManager : MonoBehaviour
 {
     private bool _end = false;
     [SerializeField] private float _interval_turn = 2f;
+
+    public static GameManager _instance;
+
+    private void Awake()
+    {
+        if (GameManager._instance != null)
+        {
+            Destroy(this);
+        }
+
+        GameManager._instance = this;
+    }
+
     public void demarrerUnePartie()
     {
         Debug.Log("La partie a démarée");
@@ -36,5 +49,12 @@ public class GameManager : MonoBehaviour
 
             UM.ActualiserPositionVisuelUnites();
         }
+
+        Debug.Log("Partie terminée");
+    }
+
+    public void setEnd(bool end)
+    {
+        _end = end;
     }
 }

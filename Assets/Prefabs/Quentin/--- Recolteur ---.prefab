@@ -178,7 +178,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3341236153368968867}
   - component: {fileID: 3341236153368968868}
-  - component: {fileID: 3341236153368968869}
+  - component: {fileID: 5414097365078636725}
+  - component: {fileID: 34748689006914892}
   m_Layer: 0
   m_Name: --- Recolteur ---
   m_TagString: Untagged
@@ -215,11 +216,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vitesse: 3
-  _cout_par_tour: {fileID: 0}
+  _cout_par_tour: {fileID: 34748689006914892}
   _case: {fileID: 0}
   _typesRessources_Recoltable: 
-  _outil: {fileID: 3341236153368968869}
---- !u!114 &3341236153368968869
+  _outil: {fileID: 5414097365078636725}
+--- !u!114 &5414097365078636725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,9 +229,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 3341236153368968870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57d7cce649530df4db52eece8eeec013, type: 3}
+  m_Script: {fileID: 11500000, guid: 79c6a517e305cc34e8292c17da2be30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rendement: 1
+--- !u!114 &34748689006914892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341236153368968870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfffe50f9d71d441b9230009b087e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  cout: 1
 --- !u!1 &3341236153399641734
 GameObject:
   m_ObjectHideFlags: 0
